@@ -84,6 +84,19 @@ public class PlayerPhysics : MonoBehaviour {
 			}
 		} 
 
+		if (!grounded && !movementStopped) {
+		Vector3 playerDir = new Vector3 (deltaX,deltaY);
+		Vector3 o = new Vector3(p.x + c.x + s.x/2 * Mathf.Sign (deltaX), p.y + c.y + s.y/2 * Mathf.Sign (deltaY));
+		ray = new Ray(o, playerDir.normalized);
+
+		if (Physics.Raycast(ray,Mathf.Sqrt (deltaX *deltaX + deltaY * deltaY),collisionMask)) {
+			grounded = true;
+			deltaY = 0; 
+
+			}
+		}
+
+
 
 		Vector2 finalTransform = new Vector2 (deltaX, deltaY);
 		
