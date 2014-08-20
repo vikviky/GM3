@@ -9,10 +9,10 @@ public class Car : MonoBehaviour {
 		transform.Rotate (Vector3.forward * carSpeed * Time.deltaTime, Space.World);
 	
 	}
-
-	void onTriggerEnter(Collider c) {
-		if (c.tag == "Player") {
-			Debug.Log("DEATH");		
-		} 
+// void on trigger
+	void onTriggerEnter2d(Collider2D collider)
+	{
+		if (collider.gameObject.tag == "Player") {
+			Destroy(gameObject);}
 	}
 }
