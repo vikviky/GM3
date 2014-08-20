@@ -30,7 +30,8 @@ public class PlayerPhysics : MonoBehaviour {
 		float deltaY = moveAmount.y;
 		float deltaX = moveAmount.x;
 		Vector2 p = transform.position; // p = player
-		
+
+		grounded = false;
 		for(int i = 0; i < 3; i++){
 			float dir = Mathf.Sign(deltaY);
 			float x = (p.x + c.x - s.x/2) + s.x/2*i; // left, centre and right side of collider 

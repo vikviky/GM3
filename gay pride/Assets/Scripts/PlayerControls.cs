@@ -7,7 +7,8 @@ public class PlayerControls : MonoBehaviour {
 	//Player Handling
 	public float gravity = 20;
 	public float speed = 8;
-	public float acceleration = 12;
+	public float acceleration = 30;
+	public float jumpHeight = 12;
 	
 	private float currentSpeed;
 	private float targetSpeed;
@@ -22,6 +23,17 @@ public class PlayerControls : MonoBehaviour {
 	void Update () {
 		targetSpeed = Input.GetAxisRaw ("Horizontal") * speed;
 		currentSpeed = incrementTowards (currentSpeed, targetSpeed, acceleration);
+
+		if(playerPhysics.grounded) {
+			amountToMove.y = 0;
+
+			//Jump
+			if(Input.GetButtonDown("Jump")) {
+				amountToMove.y = jumpHeight;
+
+			}
+		}
+
 		
 		amountToMove.x = currentSpeed;
 		amountToMove.y -= gravity * Time.deltaTime;
