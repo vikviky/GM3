@@ -21,6 +21,14 @@ public class PlayerControls : MonoBehaviour {
 	}
 	
 	void Update () {
+
+		if(playerPhysics.movementStopped) {
+			targetSpeed = 0;
+			currentSpeed =0;
+
+		}
+
+		//Input 
 		targetSpeed = Input.GetAxisRaw ("Horizontal") * speed;
 		currentSpeed = incrementTowards (currentSpeed, targetSpeed, acceleration);
 
