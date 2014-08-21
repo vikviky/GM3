@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour {
 	public float speed = 8;
 	public float acceleration = 30;
 	public float jumpHeight = 12;
+	public GameObject prefab;
 	
 	private float currentSpeed;
 	private float targetSpeed;
@@ -59,5 +60,6 @@ public class PlayerControls : MonoBehaviour {
 			return (dir == Mathf.Sign(target-n))? n: target;
 			
 		}
-	}
+
+}
 }

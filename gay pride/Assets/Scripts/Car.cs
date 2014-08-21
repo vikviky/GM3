@@ -3,11 +3,13 @@ using System.Collections;
 
 public class Car : MonoBehaviour {
 
-	public float carSpeed = 6000; 
+	public float speed = 6000; 
 
 	void Update () {
-		transform.Rotate (Vector3.forward * carSpeed * Time.deltaTime, Space.World);
-	
+		gameObject.rigidbody2D.velocity = new Vector2(GameObject.FindWithTag("Player").rigidbody2D.velocity.x + speed,0.0f);
+	}
+	void OnBecameInvisible(){
+		Destroy (gameObject);
 	}
 // void on trigger
 	void onTriggerEnter2d(Collider2D collider)
