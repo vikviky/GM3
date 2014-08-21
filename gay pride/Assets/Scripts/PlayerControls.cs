@@ -26,7 +26,7 @@ public class PlayerControls : MonoBehaviour {
 		if(playerPhysics.movementStopped) {
 			targetSpeed = 0;
 			currentSpeed =0;
-
+		
 		}
 
 		//Input 
@@ -60,6 +60,13 @@ public class PlayerControls : MonoBehaviour {
 			return (dir == Mathf.Sign(target-n))? n: target;
 			
 		}
+	}
+		void onCollisionEnter(Collider collider)
+		{
+			if (collider.gameObject.name == "Car") {
+				Destroy(gameObject);}
+		Debug.Log ("asdasd");
+		}
 
-}
+
 }
